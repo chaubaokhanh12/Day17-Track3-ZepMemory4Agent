@@ -1,0 +1,13 @@
+Heartbeat maintenance pass
+--------------------------
+OPEN: LAB-REPORT-1600: finish benchmark report before Friday 16:00.
+OPEN: Review any high-impact preference update before durable write-back.
+OPEN: After the privacy drill, verify deletion in every user-scoped store.
+
+ACTION: Compact old thread context only when pressure/phase-change is detected.
+ACTION: De-duplicate durable notes; preserve source, timestamp and confidence.
+ACTION: Expire stale low-impact tasks according to TTL policy.
+ACTION: Never create a high-impact task or preference change without policy/human review.
+ACTION: Refresh open-loop list: 3 task(s) are still open.
+
+DRY RUN: no Zep/Redis write was performed.

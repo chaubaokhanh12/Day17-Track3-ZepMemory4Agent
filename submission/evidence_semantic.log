@@ -1,0 +1,16 @@
+E06 semantic: Quy tac retry POST payment la gi?
+  PASS  2245.6 ms
+E11 semantic: Theo incident playbook, truoc khi tang timeout can kiem tra gi?
+  PASS  300.0 ms
+           Benchmark summary           
++-------------------------------------+
+| Case | Layer    | Pass | Latency ms |
+|------+----------+------+------------|
+| E06  | semantic | yes  |     2245.6 |
+| E11  | semantic | yes  |      300.0 |
++-------------------------------------+
+Reports: 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
+chmark.json | 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
+chmark.md

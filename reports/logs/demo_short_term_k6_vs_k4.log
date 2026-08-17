@@ -1,0 +1,10 @@
+======================================================================
+max_recent_messages=6
+  buffer   stats={'messages_kept': 16, 'durable_notes': 0, 'compactions': 0, 'estimated_tokens': 231} E10_markers_present=True
+  summary  stats={'messages_kept': 6, 'durable_notes': 1, 'compactions': 2, 'estimated_tokens': 247} E10_markers_present=True
+  sliding  stats={'messages_kept': 6, 'durable_notes': 1, 'compactions': 10, 'estimated_tokens': 287} E10_markers_present=True
+======================================================================
+max_recent_messages=4
+  buffer   stats={'messages_kept': 16, 'durable_notes': 0, 'compactions': 0, 'estimated_tokens': 231} E10_markers_present=True
+  summary  stats={'messages_kept': 4, 'durable_notes': 1, 'compactions': 4, 'estimated_tokens': 288} E10_markers_present=True
+  sliding  stats={'messages_kept': 4, 'durable_notes': 1, 'compactions': 12, 'estimated_tokens': 288} E10_markers_present=True

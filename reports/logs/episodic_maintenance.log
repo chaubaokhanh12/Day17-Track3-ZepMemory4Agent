@@ -1,0 +1,18 @@
+[Importance decay]
+ep-async: score=0.475 content=ASYNC-FIX-20: ClientSession + concurrency=20 fixed connection churn.
+ep-deadline: score=0.385 content=LAB-REPORT-1600 deadline Friday 16:00.
+ep-naming: score=0.103 content=Temporary variable naming brainstorm.
+ep-ui: score=0.058 content=UI spacing discussion; no durable decision.
+
+[LRU eviction candidates]
+evict-first: ep-ui last_used_days_ago=20
+evict-first: ep-naming last_used_days_ago=16
+
+[Consolidation -> reusable strategy]
+task: debug async HTTP timeout
+trajectory: increase timeout to 60s -> inspect pool/lifecycle -> reuse aiohttp ClientSession
+outcome: ClientSession + concurrency=20 worked
+reflection: root cause was connection churn, not timeout threshold
+reusable_strategy: Check connection pooling and client lifecycle before increasing timeout.
+
+Teaching note: do not delete Zep episodes blindly. Apply retention and review policy before destructive maintenance.

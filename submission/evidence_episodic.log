@@ -1,0 +1,17 @@
+E04 episodic: Lan truoc Minh fix async HTTP timeout bang cach nao?
+  PASS  997.4 ms
+E05 episodic: Reflection cua su co async la gi, tang timeout co phai root fix 
+khong?
+  PASS  315.9 ms
+           Benchmark summary           
++-------------------------------------+
+| Case | Layer    | Pass | Latency ms |
+|------+----------+------+------------|
+| E04  | episodic | yes  |      997.4 |
+| E05  | episodic | yes  |      315.9 |
++-------------------------------------+
+Reports: 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
+chmark.json | 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
+chmark.md

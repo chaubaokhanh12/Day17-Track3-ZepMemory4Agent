@@ -22,6 +22,7 @@ or locally:  streamlit run src/demo_ui.py
 
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 from typing import Any
@@ -33,7 +34,7 @@ if str(_ROOT) not in sys.path:
 import streamlit as st
 
 from src.config import settings
-from src.llm import gemini_available, generate_reply
+from src.llm import SYSTEM_INSTRUCTION, gemini_available, generate_reply
 from src.memory_student import StudentMemory
 from src.short_term import ShortTermMemory
 from src.utils import GOLDEN_PATH, load_dataset, load_json
@@ -45,6 +46,101 @@ LAYER_COLORS = {
     "episodic": "#d97706",
     "semantic": "#7c3aed",
 }
+
+# --- Chat backend -----------------------------------------------------------
+# src/llm.py only speaks Gemini. This lab machine has an OpenAI key instead, so
+# an OpenAI-compatible path is added HERE (demo_ui.py is a file students may
+# edit) rather than by patching the locked starter module. Uses `requests`,
+# already a dependency, so requirements.txt / the image stay untouched.
+OPENAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+OPENAI_BASE_URL = os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1")
+
+
+def openai_available() -> bool:
+    return bool(os.getenv("OPENAI_API_KEY"))
+
+
+def chat_backend() -> str:
+    if openai_available():
+        return f"OpenAI · {OPENAI_MODEL}"
+    if gemini_available():
+        return f"Gemini · {settings.gemini_model}"
+    return "none (showing raw context)"
+
+
+def openai_reply(
+    memory_context: str,
+    history: list[dict[str, str]],
+    user_message: str,
+    *,
+    attempts: int = 3,
+) -> str:
+    """Grounded reply via an OpenAI-compatible chat endpoint.
+
+    Same contract as llm.generate_reply: the model may only use the retrieved
+    memory context, so the UI still demonstrates memory rather than model
+    world-knowledge.
+
+    Retries transient TLS/connection failures. This lab machine sits behind
+    something that intermittently breaks the handshake to api.openai.com
+    (observed: "TLSV1_ALERT_PROTOCOL_VERSION", and the same symptom against
+    registry-1.docker.io), so a single dropped handshake must not take the demo
+    down mid-presentation.
+    """
+    import time
+
+    import requests
+
+    messages = [{"role": "system", "content": SYSTEM_INSTRUCTION}]
+    for msg in history:
+        role = "user" if msg.get("role") == "user" else "assistant"
+        if msg.get("content"):
+            messages.append({"role": role, "content": msg["content"]})
+    messages.append(
+        {
+            "role": "user",
+            "content": (
+                "Retrieved memory context for this turn:\n"
+                "-------------------------------------\n"
+                f"{memory_context.strip() or '(no memory retrieved)'}\n"
+                "-------------------------------------\n\n"
+                f"User message: {user_message}"
+            ),
+        }
+    )
+
+    last_error: Exception | None = None
+    for attempt in range(attempts):
+        try:
+            response = requests.post(
+                f"{OPENAI_BASE_URL}/chat/completions",
+                headers={"Authorization": f"Bearer {os.environ['OPENAI_API_KEY']}"},
+                json={
+                    "model": OPENAI_MODEL,
+                    "messages": messages,
+                    "temperature": 0.3,
+                    "max_tokens": 800,
+                },
+                timeout=60,
+            )
+            response.raise_for_status()
+            return response.json()["choices"][0]["message"]["content"].strip()
+        except (
+            requests.exceptions.SSLError,
+            requests.exceptions.ConnectionError,
+            requests.exceptions.Timeout,
+        ) as exc:
+            last_error = exc
+            if attempt < attempts - 1:
+                time.sleep(2 * (attempt + 1))
+
+    raise RuntimeError(
+        f"Could not reach {OPENAI_BASE_URL} after {attempts} attempts: {last_error}. "
+        "The TLS handshake is being broken by something on the network path "
+        "(antivirus/firewall TLS inspection, VPN or proxy) — retrieval above is "
+        "unaffected, only the chat reply needs this call."
+    ) from last_error
+
 
 CSS = """
 <style>
@@ -107,8 +203,63 @@ def retrieve_for_case(
       * Keep user_id and thread_id from the loaded case.
       * Finish with memory.assemble_context(layers).
     """
-    _ = (memory, case, extra_messages, settings, ShortTermMemory)
-    raise NotImplementedError("BONUS TODO: run student retrieval for the loaded case")
+    user_id = case.get("user_id", "")
+    query = case.get("query", "")
+
+    # --- short-term: session/fixture turns + whatever was typed in the chat box
+    stm = ShortTermMemory(strategy="sliding", max_recent_messages=6, pressure_tokens=450)
+    for msg in _case_messages(case):
+        stm.add(msg["role"], msg["content"])
+    for msg in extra_messages:
+        stm.add(msg["role"], msg["content"])
+
+    layers = {"short_term": stm.render(), "long_term": "", "episodic": "", "semantic": ""}
+
+    # --- which durable layers this case needs
+    expected = case.get("expected_layer", "mixed")
+    if expected == "mixed":
+        wanted = set(case.get("retrieve_layers") or ["long_term", "semantic"])
+    elif expected == "short_term":
+        wanted = set()
+    else:
+        wanted = {expected}
+    # Free-form chat is not bound to the case's layer, so widen once the user
+    # starts typing — that is what makes this a product rather than a replay.
+    if extra_messages:
+        wanted |= {"long_term", "episodic", "semantic"}
+
+    if "long_term" in wanted:
+        # NOTE: retrieve_long_term calls prime_eval_thread, which DELETES and
+        # recreates the thread it is given. Never point it at a seeded session
+        # thread (e.g. minh-s1) or the benchmark data is destroyed; use a
+        # scratch thread instead. The case's own thread_id is still displayed.
+        layers["long_term"] = memory.retrieve_long_term(
+            user_id=user_id,
+            thread_id=f"ui-scratch-{case['id']}-{user_id}",
+            query=query,
+        )
+    if "episodic" in wanted:
+        layers["episodic"] = memory.retrieve_episodic(user_id, query)
+    if "semantic" in wanted:
+        layers["semantic"] = memory.retrieve_semantic(settings.semantic_graph_id, query)
+
+    merged, breakdown = memory.assemble_context(layers)
+    return {"merged_context": merged, "layers": layers, "budget": breakdown}
+
+
+def _case_messages(case: dict[str, Any]) -> list[dict[str, str]]:
+    """Seed turns for the short-term buffer: fixture first, else the real thread."""
+    fixture = case.get("fixture_messages")
+    if fixture:
+        return list(fixture)
+    dataset = load_dataset()
+    for user in dataset.get("users", []):
+        if user["user_id"] != case.get("user_id"):
+            continue
+        for session in user.get("sessions", []):
+            if session["thread_id"] == case.get("thread_id"):
+                return list(session.get("messages", []))
+    return []
 
 
 def main() -> None:
@@ -122,9 +273,10 @@ def main() -> None:
         zep_ok = bool(settings.zep_api_key)
         st.markdown(("✅" if zep_ok else "⚠️") + " Zep API key "
                     + ("configured" if zep_ok else "missing"))
-        st.markdown(("✅" if gemini_available() else "⚠️") + " Gemini key "
-                    + ("configured" if gemini_available() else "missing"))
-        st.caption(f"Chat model: `{settings.gemini_model}`")
+        llm_ok = openai_available() or gemini_available()
+        st.markdown(("✅" if llm_ok else "⚠️") + " Chat LLM key "
+                    + ("configured" if llm_ok else "missing"))
+        st.caption(f"Chat backend: `{chat_backend()}`")
         st.divider()
 
         cases = load_cases()
@@ -197,10 +349,12 @@ def main() -> None:
             follow = retrieve_for_case(memory, {**case, "query": prompt}, st.session_state.chat)
             st.session_state.last_result = follow
             context = follow.get("merged_context", "")
-            if gemini_available():
+            if openai_available():
+                reply = openai_reply(context, st.session_state.chat[:-1], prompt)
+            elif gemini_available():
                 reply = generate_reply(context, st.session_state.chat[:-1], prompt)
             else:
-                reply = ("_(Gemini key missing — showing retrieved context instead)_\n\n"
+                reply = ("_(No chat LLM key — showing retrieved context instead)_\n\n"
                          + (context[:1500] or "(no memory retrieved)"))
             st.session_state.chat.append({"role": "assistant", "content": reply})
             with st.chat_message("assistant"):

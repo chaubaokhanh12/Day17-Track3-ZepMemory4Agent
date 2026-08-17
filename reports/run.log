@@ -1,0 +1,45 @@
+E01 short_term: Ten du an ca nhan toi vua nhac la gi?
+  PASS  0.1 ms
+E06 semantic: Quy tac retry POST payment la gi?
+  PASS  704.4 ms
+E09 long_term: Lan uu tien stack backend nao cho LOTUS-88?
+  PASS  2347.8 ms
+E10 short_term: Deadline review cu la khi nao?
+  PASS  0.5 ms
+E02 long_term: Voi demo ca nhan cua Minh, ngon ngu uu tien la gi?
+  PASS  3540.7 ms
+E03 long_term: Minh con open loop hay deadline nao chua hoan thanh?
+  PASS  1945.8 ms
+E04 episodic: Lan truoc Minh fix async HTTP timeout bang cach nao?
+  PASS  325.1 ms
+E05 episodic: Reflection cua su co async la gi, tang timeout co phai root fix 
+khong?
+  PASS  421.8 ms
+E07 mixed: Hay chon huong dan code retry payment phu hop voi preference ca nhan
+cua Minh.
+  PASS  2059.4 ms
+E11 semantic: Theo incident playbook, truoc khi tang timeout can kiem tra gi?
+  PASS  317.9 ms
+E08 long_term: Backend cua BLUEBIRD-42 bat buoc dung stack gi?
+  PASS  1527.0 ms
+            Benchmark summary            
++---------------------------------------+
+| Case | Layer      | Pass | Latency ms |
+|------+------------+------+------------|
+| E01  | short_term | yes  |        0.1 |
+| E06  | semantic   | yes  |      704.4 |
+| E09  | long_term  | yes  |     2347.8 |
+| E10  | short_term | yes  |        0.5 |
+| E02  | long_term  | yes  |     3540.7 |
+| E03  | long_term  | yes  |     1945.8 |
+| E04  | episodic   | yes  |      325.1 |
+| E05  | episodic   | yes  |      421.8 |
+| E07  | mixed      | yes  |     2059.4 |
+| E11  | semantic   | yes  |      317.9 |
+| E08  | long_term  | yes  |     1527.0 |
++---------------------------------------+
+Reports: 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
+chmark.json | 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
+chmark.md

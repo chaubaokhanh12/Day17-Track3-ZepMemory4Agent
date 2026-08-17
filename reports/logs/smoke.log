@@ -1,0 +1,4 @@
+[OK] Redis reachable
+[OK] Qdrant reachable
+[OK] sessions.json valid: 11 evaluations
+[OK] ZEP_API_KEY is present
