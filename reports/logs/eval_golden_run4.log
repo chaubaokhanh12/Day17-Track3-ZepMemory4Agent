@@ -1,0 +1,193 @@
+G01 short_term: Minh oi minh vua keo len doc lai nguyen doan chat dai luc nay, 
+co qua troi thu linh tinh: no ban ve button padding, roi color token, roi tone 
+cua copy, roi empty state, roi analytics, roi ca accessibility nua, doc muot ca
+mat. Gio minh muon hoi cho ro rang mot chuyen nghiem tuc thoi: trong tat ca cai
+mo bong bong o tren do, nhung constraint nao thuc su van con hieu luc va tuyet 
+doi khong duoc phep quen di khi thread da dai ra nhu vay? Neu co rang buoc lien
+quan den gio giac cuoc hop hay noi du lieu duoc ghi vao dau thi nhac lai chinh 
+xac tung chi tiet gium minh, dung bo sot cai nao.
+  PASS  0.3 ms
+G02 short_term: Toi nay minh hoi hoi mat neu vi ngoi debug lau qua nen dau oc 
+hoi lom bom, ban thong cam nhe. Minh nho la trong dung thread nay minh co tung 
+nhac toi cai demo ca nhan minh dang lam va cach minh thich duoc giai thich code
+ra sao, nhung gio minh khong con nho ro nua. Ban giup minh xem lai trong ngu 
+canh cua chinh cuoc noi chuyen hien tai di: cai demo ca nhan cua minh duoc dat 
+ten hay goi bang ma gi, va cai style ma minh muon ban dung khi giai thich code 
+cho minh la kieu nhu the nao? Dung lay tu du an nao khac, chi lay dung nhung gi
+minh da noi ngay trong thread nay thoi.
+  PASS  0.1 ms
+G08 long_term: Chao ban, minh la Lan day. Minh dang len ke hoach kien truc cho 
+san pham rieng cua minh va sap toi phai giai trinh voi doi tac ve lua chon cong
+nghe nen minh muon chac chan minh dang nho dung. Ban nhac lai gium minh xem: 
+rieng cho san pham cua minh, minh da quyet dinh chon backend theo huong nao, cu
+the la ngon ngu nao va framework nao? Minh chi can dung nhung gi lien quan den 
+minh va san pham cua minh thoi, dung dua vao thong tin cua ban be hay dong 
+nghiep nao khac cua minh vao cau tra loi.
+  PASS  1454.1 ms
+G09 long_term: Minh dang lam kiem ke lai mo hinh cac du an backend de bao cao, 
+ma minh rat so cai vu bi gan nham du an cua nguoi khac vao ho so cua minh, 
+chuyen do tung xay ra roi nen lan nay minh can cham. Ban liet ke gium minh 
+chinh xac nhung du an backend ma dich than minh dang so huu thoi nhe, tuyet doi
+dung suy dien hay them vao bat ky du an nao cua ban be, dong nghiep hay ai khac
+ma minh khong so huu. Neu ban khong chac cai nao la cua minh thi thoi bo qua, 
+con hon la doan lam.
+  PASS  1473.3 ms
+G12 semantic: Minh dang viet lai cai module goi POST /payments va minh muon xu 
+ly loi cho dung chuan quy dinh chu khong lam theo cam tinh. Trong truong hop 
+endpoint tra ve loi kieu 429 do bi throttle, hoac cac loi 5xx phia server, thi 
+theo policy minh phai retry nhu the nao cho an toan de tranh tinh trang tru 
+tien hai lan hay tao don trung? Nhac lai gium minh day du cac dieu kien, cach 
+danh dau request, kieu cho giua cac lan thu, gioi han so lan thu, va ma dinh 
+danh cua cai rule thanh toan do la gi.
+  PASS  219.6 ms
+G14 semantic: Minh la Lan, minh dang review lai phan tuan thu quyen rieng tu 
+truoc khi cho tinh nang memory ca nhan len production vi bo phan phap ly hoi 
+hoi rat gat. Cho minh hoi lai cho chac: theo quy tac trong lab, viec luu giu bo
+nho ca nhan cua nguoi dung phai tuan theo nguyen tac dong y kieu nao, va khi 
+mot nguoi dung yeu cau xoa du lieu cua ho thi minh phai lam sao cho dung, co 
+buoc xac minh gi khong? Neu co ma dinh danh cua quy tac xoa du lieu do thi noi 
+luon gium minh de minh ghi vao tai lieu compliance.
+  PASS  214.9 ms
+G15 semantic: Minh dang tinh lai chuyen context window cho con agent trong lab 
+vi minh so nhoi qua nhieu vao prompt se bi tran token. Minh nho mo mang la lab 
+co dinh nghia san mot ty le phan bo token cho bon tang bo nho khac nhau nhung 
+minh khong con nho con so chinh xac. Ban nhac lai gium minh cai ty le token 
+budget duoc quy dinh cho bon memory layer trong lab nay la bao nhieu, va neu co
+ma dinh danh gan lien voi cai quy tac ngan sach do thi cho minh luon de minh 
+cau hinh cho dung khoi doan mo.
+  PASS  240.0 ms
+G19 mixed: Minh la Lan, minh dang muon them retry cho phan goi payment trong 
+san pham cua minh va minh muon vi du code hop voi dung stack ma minh dang dung 
+chu dung dua cho minh vi du cua ngon ngu khac. Ban gy y gium minh: dua theo 
+backend ma minh da chon cho san pham cua minh, minh nen viet retry payment bang
+ngon ngu va framework nao, va ap dung policy thanh toan chung ra sao o phan 
+danh dau request de khoi tao don trung? Chi lay dung preference cua minh, dung 
+lay nham cua dong nghiep nao khac.
+  PASS  1601.8 ms
+G03 long_term: Minh dang setup lai moi truong dev cho mot buoi ngoi code mot 
+minh cuoi tuan nay, kieu khong co ai chung nhom, chi lam project rieng cua minh
+cho vui thoi. Truoc khi minh chon template va cai dependency, ban nhac lai gium
+minh mot chut: khi minh lam bai tap hay lam viec mot minh nhu vay thi minh 
+thuong uu tien ngon ngu lap trinh nao nhi, va cai du an ca nhan ma minh hay dem
+ra lam demo do ten hay ma dinh danh la gi? Minh chi hoi ve rieng minh thoi, 
+dung tron lan sang so thich cua ban be hay dong nghiep nao khac cua minh.
+  PASS  1424.2 ms
+G04 long_term: Sang mai minh phai hop review tien do voi mentor nen toi nay 
+minh muon don dep lai het may thu con dang do. Minh biet minh con vai viec chua
+chot xong nhung dau oc dang roi qua khong nho het. Ban lam on liet ke lai gium 
+minh: hien tai minh con viec gi chua dong lai, cai deadline cua no la khi nao, 
+va cai ma dinh danh open-loop ma minh da gan cho task do la gi? Minh can du ba 
+thong tin do de ghi vao note chuan bi hop, cang cu the cang tot.
+  PASS  1436.1 ms
+G05 long_term: Minh dang chuan bi tu on lai phan async cua Python vi tuan sau 
+co bai kiem tra nho, ma minh thi hoc kieu de vao dau lai de troi ra lam neu chi
+doc chu suong. Neu lat nua ban phai giai thich cho minh nhung khai niem hoi 
+truu tuong nhu coroutine roi Task hoat dong ra sao, chay tuan tu hay song song 
+the nao, thi ban nen trinh bay theo hinh thuc nao de hop voi cach minh tiep thu
+nhat? Minh khong hoi ve chuyen chon stack hay thu vien gi dau, minh chi hoi ve 
+cach minh thich duoc day va minh hoa thoi.
+  PASS  1419.2 ms
+G10 episodic: Hom no minh dinh bi lai cai su co async HTTP tren staging va minh
+nho la minh co thu vai huong khac nhau truoc khi ra duoc cach on. Co mot lan 
+minh nghi don gian la tang timeout len sau muoi giay cho no thoai mai chay, 
+minh muon biet cai do co thuc su giai quyet duoc van de khong hay chi la vong 
+vo. Va quan trong hon, cuoi cung thi cach nao moi that su work, minh da chinh 
+sua o dau, cau hinh ra sao, va cai ma su co do minh gan cho no la gi? Ke lai 
+giup minh nguyen ca hanh trinh do, ca cai thu that bai lan cai fix cuoi cung.
+  PASS  445.7 ms
+G11 episodic: Minh dang viet post-mortem cho cai su co async lan truoc va minh 
+muon phan root cause cho that dung ban chat chu khong noi chung chung. Cho minh
+hoi lai: nguyen nhan goc re that su cua su co do la do he thong bi qua tai roi 
+timeout, hay la mot van de nao khac han ma luc dau minh tuong nham? Ban nhac 
+lai gium minh phan reflection minh da rut ra luc do va ca cai ma dinh danh su 
+co ma minh gan cho no, de minh dan chinh xac vao bao cao, dung tom tat qua tay 
+lam sai y.
+  PASS  496.2 ms
+G13 semantic: Team minh moi vua dinh mot su co lien quan toi latency va nguoi 
+ta cu doi don tang timeout len cho xong chuyen, nhung minh nho la trong lab 
+minh co mot cai playbook xu ly su co ma no yeu cau lam mot buoc kiem tra khac 
+truoc da. Ban nhac lai gium minh: theo dung cai playbook incident do, truoc khi
+cham vao chuyen noi rong timeout thi minh bat buoc phai kiem tra dieu gi truoc 
+tien, va cai ma dinh danh cua playbook do la gi de minh trich dan cho chuan 
+trong bao cao su co?
+  PASS  228.1 ms
+G16 mixed: Minh dang ngoi mot minh viet cho xong cai ham retry cho POST payment
+de toi nay demo, va minh muon no vua dung dung ngon ngu ma minh thich khi lam 
+viec ca nhan, vua bam sat dung policy thanh toan chinh thuc chu khong duoc lam 
+au. Ban giup minh ghep lai: dua tren so thich stack ca nhan cua minh, minh nen 
+viet cai retry nay bang ngon ngu nao, va theo dung marker policy thanh toan 
+trong lab thi minh phai danh dau request va xu ly retry ra sao cho khong bi tao
+don trung? Chi lay preference cua rieng minh, dung tron voi cua nguoi khac.
+  PASS  1601.2 ms
+G18 mixed: Minh dang chuan bi doi mat lai voi mot su co async kieu tuong tu lan
+truoc nen minh muon ket hop ca bai hoc xuong mau cua chinh minh lan cai 
+playbook chung cua lab de lan nay xu ly cho gon. Ban ghep gium minh hai thu: 
+mot la theo dung playbook incident, truoc khi minh nghi toi chuyen noi rong 
+timeout thi minh phai lam buoc gi truoc da, va hai la trong trai nghiem thuc te
+cua minh lan truoc thi cai fix nao moi that su work de minh lam lai cho dung? 
+Ke ca hai manh vao cho minh de minh khong dam lai vet xe do.
+  PASS  664.8 ms
+G20 mixed: Toi nay minh muon viet cho tron ven cai retry payment ma vua dung so
+thich stack ca nhan cua minh, vua theo dung policy thanh toan chinh thuc, vua 
+tranh dam lai dung cai su co async ma lan truoc minh da tung dinh. Ban giup 
+minh gom ca ba manh lai mot cho: mot la ngon ngu ma minh thich dung khi lam 
+viec ca nhan, hai la marker policy payment trong lab de danh dau request khoi 
+trung don, va ba la cai fix ma lan truoc minh da lam va no that su work de minh
+khong lap lai loi cu. Rap tat ca vao mot huong dan mach lac cho minh, va nho 
+scope dung theo rieng minh thoi.
+  PASS  2200.9 ms
+G06 long_term: Tuan nay minh moi bi keo vao cai du an ben cong ty va sep hoi 
+lien tuc ve chuyen chuan hoa backend, ma minh thi hoi mo ho vi truoc gio minh 
+xai nhieu thu khac nhau cho project rieng. Ban giup minh chot lai cho ro: rieng
+cai du an cong ty cua minh, backend bat buoc phai dung cong nghe nao theo quy 
+dinh, va ngon ngu Python ma minh hay dung cho viec ca nhan thi co con duoc dung
+cho backend cua chinh cai du an cong ty do khong? Chi tra loi theo dung du an 
+cong ty cua minh thoi, dung tron voi project cua nguoi khac.
+  PASS  1392.2 ms
+G07 long_term: Minh dang viet mot cai note tong ket ngan de tuan sau trinh bay 
+cho ca nhom nghe ve cach minh phan biet giua viec ca nhan va viec o cong ty, vi
+may ban trong nhom hay bi lan lon. De minh giai thich cho ro rang, ban lam on 
+so sanh gium minh hai ben: mot ben la stack ma minh dung cho cai demo ca nhan 
+cua minh, mot ben la stack ma minh dung cho du an ben cong ty. Neu duoc thi neu
+ro tung ten du an, ngon ngu va framework tuong ung cho tung ben de minh dan 
+thang vao slide, dung nham sang project cua ai khac.
+  PASS  1516.7 ms
+G17 mixed: Tuan nay minh phai them chuc nang retry payment vao dung cai backend
+cua du an ben cong ty chu khong phai project ca nhan, nen minh can lam theo 
+dung chuan cong nghe ma cong ty bat buoc. Ban giup minh xac dinh: rieng cho 
+backend cua du an cong ty cua minh thi minh phai viet bang stack nao, ngon ngu 
+va framework cu the ra sao, va ap dung policy thanh toan chung the nao cho phan
+danh dau request khoi bi trung don? Nho la scope theo dung du an cong ty cua 
+minh, dung dua stack cua ai khac vao.
+  PASS  1623.4 ms
+Golden 20/20. Bonus = 10/10.
+            Benchmark summary            
+┌──────┬────────────┬──────┬────────────┐
+│ Case │ Layer      │ Pass │ Latency ms │
+├──────┼────────────┼──────┼────────────┤
+│ G01  │ short_term │ yes  │        0.3 │
+│ G02  │ short_term │ yes  │        0.1 │
+│ G08  │ long_term  │ yes  │     1454.1 │
+│ G09  │ long_term  │ yes  │     1473.3 │
+│ G12  │ semantic   │ yes  │      219.6 │
+│ G14  │ semantic   │ yes  │      214.9 │
+│ G15  │ semantic   │ yes  │      240.0 │
+│ G19  │ mixed      │ yes  │     1601.8 │
+│ G03  │ long_term  │ yes  │     1424.2 │
+│ G04  │ long_term  │ yes  │     1436.1 │
+│ G05  │ long_term  │ yes  │     1419.2 │
+│ G10  │ episodic   │ yes  │      445.7 │
+│ G11  │ episodic   │ yes  │      496.2 │
+│ G13  │ semantic   │ yes  │      228.1 │
+│ G16  │ mixed      │ yes  │     1601.2 │
+│ G18  │ mixed      │ yes  │      664.8 │
+│ G20  │ mixed      │ yes  │     2200.9 │
+│ G06  │ long_term  │ yes  │     1392.2 │
+│ G07  │ long_term  │ yes  │     1516.7 │
+│ G17  │ mixed      │ yes  │     1623.4 │
+└──────┴────────────┴──────┴────────────┘
+Reports: 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\gol
+den_benchmark.json | 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\gol
+den_benchmark.md
