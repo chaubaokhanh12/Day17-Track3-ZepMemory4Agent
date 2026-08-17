@@ -2,7 +2,26 @@
   "permissions": {
     "allow": [
       "Bash(powershell -NoProfile -Command 'Get-CimInstance Win32_Process -Filter \"Name='\\\\''python.exe'\\\\''\" | Where-Object { $_.CommandLine -like '\\\\''*streamlit*'\\\\'' } | ForEach-Object { Stop-Process -Id $_.ProcessId -Force }')",
-      "Bash(curl -s -o /dev/null -w \"streamlit HTTP %{http_code}\\\\n\" http://127.0.0.1:8501/)"
+      "Bash(curl -s -o /dev/null -w \"streamlit HTTP %{http_code}\\\\n\" http://127.0.0.1:8501/)",
+      "Bash(.venv/Scripts/python.exe -c ' *)",
+      "Bash(cd \"c:/Users/Admin/Downloads/LAB_Vin/Day17/Day17-Track3-ZepMemory4Agent\")",
+      "Bash(.venv/Scripts/python.exe -m src.evaluate --impl student --reuse-seeded --golden)",
+      "Bash(tee reports/logs/eval_golden_run1.log)",
+      "Bash(tee reports/logs/eval_golden_run2.log)",
+      "Bash(tee reports/logs/eval_golden_run3.log)",
+      "Bash(tee reports/logs/eval_golden_run4.log)",
+      "Bash(.venv/Scripts/python.exe -m pytest -q)",
+      "Bash(tee reports/logs/eval_golden_run5_nofreshseed.log)",
+      "Bash(grep -E \"\\\\.env$|golden_eval\\\\.json$|\\\\.venv\")",
+      "Bash(echo \"\\(exit $?\\)\")",
+      "Bash(.venv/Scripts/python.exe -c \"print\\(len\\(open\\('README_submission.md',encoding='utf-8'\\).read\\(\\).split\\(\\)\\)\\)\")",
+      "Bash(.venv/Scripts/python.exe -)",
+      "Bash(cat README_submission.md)",
+      "Bash(nohup .venv/Scripts/python.exe -m streamlit run src/demo_ui.py --server.address 127.0.0.1 --server.port 8501 --server.headless true)",
+      "Bash(sleep 14)",
+      "Bash(echo \"=== ket qua cuoi ===\")",
+      "Bash(echo \"=== artefact ===\")",
+      "Bash(ls reports/*.md reports/*.json submission/)"
     ]
   }
 }

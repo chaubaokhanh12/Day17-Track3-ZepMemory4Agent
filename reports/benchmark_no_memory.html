@@ -52,7 +52,7 @@
 </style></head>
 <body><div class="wrap">
   <h1>Lab 17 — Memory Benchmark Report</h1>
-  <div class="meta">Source: <code>benchmark_no_memory.json</code> · generated 2026-08-17 10:37:59</div>
+  <div class="meta">Source: <code>benchmark_no_memory.json</code> · generated 2026-08-17 18:22:49</div>
   <div class="banner">9 case(s) failing · 2/11 passed (18%)</div>
   <div class="cards"><div class="card" style="border-top:4px solid #0ea5e9"><div class="label">Implementation</div><div class="value">no_memory</div><div class="sub">kind: practice</div></div><div class="card" style="border-top:4px solid #dc2626"><div class="label">Passed</div><div class="value">2/11</div></div><div class="card" style="border-top:4px solid #7c3aed"><div class="label">Hit rate</div><div class="value">18.2%</div></div><div class="card" style="border-top:4px solid #d97706"><div class="label">Avg latency</div><div class="value">0.0 ms</div></div><div class="card" style="border-top:4px solid #0891b2"><div class="label">Token reduction</div><div class="value">81.8%</div></div></div>
   <div class="progress"><i></i></div>
@@ -86,43 +86,43 @@ assistant: Filler answer 6.
   <h2>Run log</h2><details class="log"><summary>Show captured run log (45 lines)</summary><pre>E01 short_term: Ten du an ca nhan toi vua nhac la gi?
   PASS  0.1 ms
 E06 semantic: Quy tac retry POST payment la gi?
-  PASS  704.4 ms
+  PASS  401.8 ms
 E09 long_term: Lan uu tien stack backend nao cho LOTUS-88?
-  PASS  2347.8 ms
+  PASS  1675.4 ms
 E10 short_term: Deadline review cu la khi nao?
   PASS  0.5 ms
 E02 long_term: Voi demo ca nhan cua Minh, ngon ngu uu tien la gi?
-  PASS  3540.7 ms
+  PASS  1444.0 ms
 E03 long_term: Minh con open loop hay deadline nao chua hoan thanh?
-  PASS  1945.8 ms
+  PASS  1429.1 ms
 E04 episodic: Lan truoc Minh fix async HTTP timeout bang cach nao?
-  PASS  325.1 ms
+  PASS  450.7 ms
 E05 episodic: Reflection cua su co async la gi, tang timeout co phai root fix 
 khong?
-  PASS  421.8 ms
+  PASS  457.3 ms
 E07 mixed: Hay chon huong dan code retry payment phu hop voi preference ca nhan
 cua Minh.
-  PASS  2059.4 ms
+  PASS  1668.3 ms
 E11 semantic: Theo incident playbook, truoc khi tang timeout can kiem tra gi?
-  PASS  317.9 ms
+  PASS  214.1 ms
 E08 long_term: Backend cua BLUEBIRD-42 bat buoc dung stack gi?
-  PASS  1527.0 ms
+  PASS  1433.1 ms
             Benchmark summary            
-+---------------------------------------+
-| Case | Layer      | Pass | Latency ms |
-|------+------------+------+------------|
-| E01  | short_term | yes  |        0.1 |
-| E06  | semantic   | yes  |      704.4 |
-| E09  | long_term  | yes  |     2347.8 |
-| E10  | short_term | yes  |        0.5 |
-| E02  | long_term  | yes  |     3540.7 |
-| E03  | long_term  | yes  |     1945.8 |
-| E04  | episodic   | yes  |      325.1 |
-| E05  | episodic   | yes  |      421.8 |
-| E07  | mixed      | yes  |     2059.4 |
-| E11  | semantic   | yes  |      317.9 |
-| E08  | long_term  | yes  |     1527.0 |
-+---------------------------------------+
+┌──────┬────────────┬──────┬────────────┐
+│ Case │ Layer      │ Pass │ Latency ms │
+├──────┼────────────┼──────┼────────────┤
+│ E01  │ short_term │ yes  │        0.1 │
+│ E06  │ semantic   │ yes  │      401.8 │
+│ E09  │ long_term  │ yes  │     1675.4 │
+│ E10  │ short_term │ yes  │        0.5 │
+│ E02  │ long_term  │ yes  │     1444.0 │
+│ E03  │ long_term  │ yes  │     1429.1 │
+│ E04  │ episodic   │ yes  │      450.7 │
+│ E05  │ episodic   │ yes  │      457.3 │
+│ E07  │ mixed      │ yes  │     1668.3 │
+│ E11  │ semantic   │ yes  │      214.1 │
+│ E08  │ long_term  │ yes  │     1433.1 │
+└──────┴────────────┴──────┴────────────┘
 Reports: 
 C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
 chmark.json | 
