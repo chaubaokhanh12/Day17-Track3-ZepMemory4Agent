@@ -1,0 +1,22 @@
+E09 long_term: Lan uu tien stack backend nao cho LOTUS-88?
+  PASS  2094.1 ms
+E02 long_term: Voi demo ca nhan cua Minh, ngon ngu uu tien la gi?
+  PASS  2521.0 ms
+E03 long_term: Minh con open loop hay deadline nao chua hoan thanh?
+  PASS  1979.9 ms
+E08 long_term: Backend cua BLUEBIRD-42 bat buoc dung stack gi?
+  PASS  1952.0 ms
+           Benchmark summary            
++--------------------------------------+
+| Case | Layer     | Pass | Latency ms |
+|------+-----------+------+------------|
+| E09  | long_term | yes  |     2094.1 |
+| E02  | long_term | yes  |     2521.0 |
+| E03  | long_term | yes  |     1979.9 |
+| E08  | long_term | yes  |     1952.0 |
++--------------------------------------+
+Reports: 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
+chmark.json | 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
+chmark.md

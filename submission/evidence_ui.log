@@ -1,0 +1,16 @@
+chat backend: OpenAI · gpt-4o-mini
+layers active: ['long_term', 'semantic']
+  short_term  used=    0 limit=  800 raw=    0
+  long_term   used=  324 limit=  320 raw= 1465
+  episodic    used=    0 limit=  240 raw=    0
+  semantic    used=  148 limit=  240 raw=  148
+markers -> Python: True | Idempotency-Key: True
+chat-mode layers: ['short_term', 'long_term', 'episodic', 'semantic']
+--- OpenAI grounded reply ---
+Bạn nên viết retry cho POST /payments bằng ngôn ngữ TypeScript, theo quy tắc sau:
+
+- Mỗi yêu cầu retryable PHẢI gửi cùng một Idempotency-Key.
+- Chỉ retry cho các lỗi HTTP 429 hoặc các lỗi 5xx tạm thời.
+- Sử dụng phương pháp exponential-backoff và dừng lại sau tối đa 3 lần retry.
+
+(Marker: PAYMENT-RULE-3)

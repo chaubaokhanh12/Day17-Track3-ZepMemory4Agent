@@ -1,0 +1,67 @@
++- buffer | {'messages_kept': 16, 'durable_notes': 0, 'compactions': 0, 'esti-+
+| user: Constraint: REVIEW-DEADLINE-1600 - project review is Friday at 16:00  |
+| and must not be forgotten.                                                  |
+| assistant: Acknowledged.                                                    |
+| assistant: Filler turn 1 about an already-resolved detail.                  |
+| user: Filler turn 2 about an already-resolved detail.                       |
+| assistant: Filler turn 3 about an already-resolved detail.                  |
+| user: Filler turn 4 about an already-resolved detail.                       |
+| assistant: Filler turn 5 about an already-resolved detail.                  |
+| user: Filler turn 6 about an already-resolved detail.                       |
+| assistant: Filler turn 7 about an already-resolved detail.                  |
+| user: Filler turn 8 about an already-resolved detail.                       |
+| assistant: Filler turn 9 about an already-resolved detail.                  |
+| user: Filler turn 10 about an already-resolved detail.                      |
+| assistant: Filler turn 11 about an already-resolved detail.                 |
+| user: Filler turn 12 about an already-resolved detail.                      |
+| assistant: Filler turn 13 about an already-resolved detail.                 |
+| user: Filler turn 14 about an already-resolved detail.                      |
++-----------------------------------------------------------------------------+
++- summary | {'messages_kept': 6, 'durable_notes': 1, 'compactions': 2, 'esti-+
+| <SESSION_SUMMARY>                                                           |
+| assistant: Acknowledged. | assistant: Filler turn 1 about an                |
+| already-resolved detail. | user: Filler turn 2 about an already-resolved    |
+| detail. | assistant: Filler turn 3 about an already-resolved detail. |      |
+| assistant: Filler turn 5 about an already-resolved detail. | user: Filler   |
+| turn 6 about an already-resolved detail. | assistant: Filler turn 7 about   |
+| an already-resolved detail. | user: Filler turn 8 about an already-resolved |
+| detail.                                                                     |
+| </SESSION_SUMMARY>                                                          |
+| <DURABLE_NOTES>                                                             |
+| - user: Constraint: REVIEW-DEADLINE-1600 - project review is Friday at      |
+| 16:00 and must not be forgotten.                                            |
+| </DURABLE_NOTES>                                                            |
+| <RECENT_TURNS>                                                              |
+| assistant: Filler turn 9 about an already-resolved detail.                  |
+| user: Filler turn 10 about an already-resolved detail.                      |
+| assistant: Filler turn 11 about an already-resolved detail.                 |
+| user: Filler turn 12 about an already-resolved detail.                      |
+| assistant: Filler turn 13 about an already-resolved detail.                 |
+| user: Filler turn 14 about an already-resolved detail.                      |
+| </RECENT_TURNS>                                                             |
++-----------------------------------------------------------------------------+
++- sliding | {'messages_kept': 6, 'durable_notes': 1, 'compactions': 10, 'est-+
+| <SESSION_SUMMARY>                                                           |
+| user: Constraint: REVIEW-DEADLINE-1600 - project review is Friday at 16:00  |
+| and must not be forgotten. | assistant: Acknowledged. | assistant: Filler   |
+| turn 1 about an already-resolved detail. | user: Filler turn 2 about an     |
+| already-resolved detail. | assistant: Filler turn 3 about an                |
+| already-resolved detail. | user: Filler turn 4 about an already-resolved    |
+| detail. | assistant: Filler turn 5 about an already-resolved detail. |      |
+| user: Filler turn 6 about an already-resolved detail. | assistant: Filler   |
+| turn 7 about an already-resolved detail. | user: Filler turn 8 about an     |
+| already-resolved detail.                                                    |
+| </SESSION_SUMMARY>                                                          |
+| <DURABLE_NOTES>                                                             |
+| - user: Constraint: REVIEW-DEADLINE-1600 - project review is Friday at      |
+| 16:00 and must not be forgotten.                                            |
+| </DURABLE_NOTES>                                                            |
+| <RECENT_TURNS>                                                              |
+| assistant: Filler turn 9 about an already-resolved detail.                  |
+| user: Filler turn 10 about an already-resolved detail.                      |
+| assistant: Filler turn 11 about an already-resolved detail.                 |
+| user: Filler turn 12 about an already-resolved detail.                      |
+| assistant: Filler turn 13 about an already-resolved detail.                 |
+| user: Filler turn 14 about an already-resolved detail.                      |
+| </RECENT_TURNS>                                                             |
++-----------------------------------------------------------------------------+

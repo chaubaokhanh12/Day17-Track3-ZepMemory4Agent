@@ -1,0 +1,25 @@
+  missing: ['connection pooling', 'CONN-POOL-FIRST']
+E08 long_term: Backend cua BLUEBIRD-42 bat buoc dung stack gi?
+  FAIL  0.0 ms
+  missing: ['BLUEBIRD-42', 'TypeScript', 'NestJS']
+            Benchmark summary            
++---------------------------------------+
+| Case | Layer      | Pass | Latency ms |
+|------+------------+------+------------|
+| E01  | short_term | yes  |        0.1 |
+| E06  | semantic   | no   |        0.0 |
+| E09  | long_term  | no   |        0.0 |
+| E10  | short_term | yes  |        0.3 |
+| E02  | long_term  | no   |        0.0 |
+| E03  | long_term  | no   |        0.0 |
+| E04  | episodic   | no   |        0.0 |
+| E05  | episodic   | no   |        0.0 |
+| E07  | mixed      | no   |        0.0 |
+| E11  | semantic   | no   |        0.0 |
+| E08  | long_term  | no   |        0.0 |
++---------------------------------------+
+Reports: 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
+chmark_no_memory.json | 
+C:\Users\Admin\Downloads\LAB_Vin\Day17\Day17-Track3-ZepMemory4Agent\reports\ben
+chmark_no_memory.md

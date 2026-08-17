@@ -1,0 +1,23 @@
+{
+ "id": "E10",
+ "after_stage": 1,
+ "user_id": "minh-lab17",
+ "thread_id": "local-short-term",
+ "expected_layer": "short_term",
+ "query": "Deadline review cu la khi nao?",
+ "must_contain_all": [
+  "REVIEW-DEADLINE-1600",
+  "Friday",
+  "16:00"
+ ],
+ "description": "Compaction must preserve an old constraint in durable notes."
+}
+fixture n= 14
+  user : Constraint: REVIEW-DEADLINE-1600 - project review is Friday at 16:00 and must not be forgotten.
+  assistant : Acknowledged review constraint.
+  user : Filler turn 1 about UI spacing.
+  assistant : Filler answer 1.
+ ...
+turns=  16 [('buffer', 231, True), ('sliding', 287, True)]
+turns=  62 [('buffer', 892, True), ('sliding', 763, True)]
+turns= 202 [('buffer', 2930, True), ('sliding', 764, True)]

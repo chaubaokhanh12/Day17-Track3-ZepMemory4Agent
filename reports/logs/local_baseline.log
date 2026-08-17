@@ -1,0 +1,13 @@
+[Redis baseline]
+profile: {'preferred_language': 'Python', 'avoid_language': 'Java', 'style': 'short examples'}
+facts: ['learning=async-await', 'project=ORCHID-27']
+recent sessions: ['minh-s1', 'minh-s2']
+ttl(profile): 7776000 seconds
+
+[Qdrant local semantic baseline]
+query: payment POST retry idempotency exponential backoff
+score=0.475 payload={'id': 'kb-payment-retry', 'entity': 'Payment API Retry Policy', 'summary': 'For POST /payments, every retryable request MUST send the same Idempotency-Key. Retry only HTTP 429 or transient 5xx errors, use exponential-backoff, and stop after max-3-retries. Marker: PAYMENT-RULE-3.', 'source': 'internal-api-guideline-v3', 'updated_at': '2026-08-10T00:00:00Z'}
+score=0.047 payload={'id': 'kb-async-http', 'entity': 'Async HTTP Incident Playbook', 'summary': 'When async HTTP calls time out, inspect connection pooling, downstream saturation and concurrency before increasing timeout. Reuse a long-lived client session where possible. Marker: CONN-POOL-FIRST.', 'source': 'incident-playbook-2026', 'updated_at': '2026-08-11T00:00:00Z'}
+score=0.045 payload={'id': 'kb-context-budget', 'entity': 'Memory Context Budget', 'summary': 'Reserve bounded context for memory. This lab uses short-term 10 percent, long-term 4 percent, episodic 3 percent, semantic 3 percent; trim lower-priority memory first. Marker: BUDGET-10-4-3-3.', 'source': 'lab-design-note', 'updated_at': '2026-08-13T00:00:00Z'}
+
+This baseline is intentionally simple: students use Zep for the main lab.

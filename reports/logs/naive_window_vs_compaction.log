@@ -1,0 +1,2 @@
+naive last-6 window keeps REVIEW-DEADLINE-1600 ? False
+sliding+compaction keeps it ? True {'messages_kept': 6, 'durable_notes': 1, 'compactions': 196, 'estimated_tokens': 764}

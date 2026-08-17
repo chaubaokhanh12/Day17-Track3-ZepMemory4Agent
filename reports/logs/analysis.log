@@ -1,0 +1,42 @@
+summary: {"cases": 11, "passed": 11, "memory_hit_rate": 1.0, "avg_latency_ms": 1799.5, "avg_token_reduction": 0.1419, "perfect": true, "golden_points": 0}
+case layer         tok   full     red       ms
+E03  long_term    1478    221    0.0%   2506.9
+E02  long_term    1473    221    0.0%   2042.7
+E08  long_term    1471    288    0.0%   2994.6
+E09  long_term     766     44    0.0%   2510.1
+E07  mixed         485    565   14.2%   4754.8
+E04  episodic      249    221    0.0%    802.5
+E05  episodic      237    221    0.0%   2000.0
+E10  short_term    195    100    0.0%      0.3
+E06  semantic      148    459   67.8%   1721.2
+E11  semantic      146    565   74.2%    461.1
+E01  short_term    133    115    0.0%      0.1
+
+short_term  2/2  avg_tokens=164
+semantic    2/2  avg_tokens=147
+long_term   4/4  avg_tokens=1297
+episodic    2/2  avg_tokens=243
+mixed       1/1  avg_tokens=485
+
+E07 budget: {
+ "short_term": {
+  "limit_tokens": 800,
+  "raw_tokens": 0,
+  "used_tokens": 0
+ },
+ "long_term": {
+  "limit_tokens": 320,
+  "raw_tokens": 1469,
+  "used_tokens": 324
+ },
+ "episodic": {
+  "limit_tokens": 240,
+  "raw_tokens": 0,
+  "used_tokens": 0
+ },
+ "semantic": {
+  "limit_tokens": 240,
+  "raw_tokens": 148,
+  "used_tokens": 148
+ }
+}
